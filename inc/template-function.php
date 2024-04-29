@@ -24,20 +24,9 @@ function harry_header(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function harry_footer(){
+    get_template_part( 'template-parts/footer/footer-1' );
+}
 
 
 
@@ -49,10 +38,9 @@ function harry_header(){
 
 // harry_logo 
 function harry_logo(){ 
-    $harry_logo = get_theme_mod( 'harry_logo', get_template_directory_uri() . '/assets/img/logo/logo-black.svg' )    
+    $harry_logo = get_theme_mod( 'harry_logo', get_template_directory_uri() . '/assets/img/logo/logo-black.svg' );    
     
     ?>
-
     <a href="<?php echo esc_url(home_url('/')); ?>">
         <img src="<?php echo esc_url($harry_logo); ?>" alt="<?php echo bloginfo(); ?>">
     </a>
@@ -62,10 +50,9 @@ function harry_logo(){
 
 // harry_search_logo 
 function harry_search_logo(){ 
-    $harry_search_logo = get_theme_mod( 'harry_search_logo', get_template_directory_uri() . '/assets/img/logo/logo.svg' )    
+    $harry_search_logo = get_theme_mod( 'harry_search_logo', get_template_directory_uri() . '/assets/img/logo/logo.svg' );    
     
     ?>
-
     <a href="<?php echo esc_url(home_url('/')); ?>">
         <img src="<?php echo esc_url($harry_search_logo); ?>" alt="<?php echo bloginfo(); ?>">
     </a>
@@ -75,8 +62,7 @@ function harry_search_logo(){
 
 // harry_side_logo 
 function harry_side_logo(){ 
-    $harry_side_logo = get_theme_mod( 'harry_side_logo', get_template_directory_uri() . '/assets/img/logo/logo-black.svg' )    
-    
+    $harry_side_logo = get_theme_mod( 'harry_side_logo', get_template_directory_uri() . '/assets/img/logo/logo-black.svg' );    
     ?>
 
     <a href="<?php echo esc_url(home_url('/')); ?>">
@@ -122,6 +108,14 @@ function harry_social(){
     <?php
 }
 
+// footer_copyright 
+function footer_copyright(){
+    $footer_copyright = get_theme_mod('harry_footer_copyright',__('© 2024 Harry All Rights Reserved.','harry'));
+    ?>
+        <p><?php echo wp_kses_post($footer_copyright); ?></p>
+    <?php
+}
+
 // harry_menu
 function harry_menu(){
     wp_nav_menu( 
@@ -135,11 +129,24 @@ function harry_menu(){
     ); 
 }
 
-// harry_menu
+// harry_side_menu
 function harry_side_menu(){
     wp_nav_menu( 
         array( 
             'theme_location'  => 'side-menu',
+            'menu_class'      => '',
+            'menu_id'         => '',
+            'fallback_cb'     => 'Harry_Walker_Nav_Menu::fallback',
+            'walker'     => new Harry_Walker_Nav_Menu,
+        ) 
+    ); 
+}
+
+// harry_side_menu
+function harry_footer_menu(){
+    wp_nav_menu( 
+        array( 
+            'theme_location'  => 'footer-menu',
             'menu_class'      => '',
             'menu_id'         => '',
             'fallback_cb'     => 'Harry_Walker_Nav_Menu::fallback',

@@ -312,3 +312,29 @@ function harry_logo_section(){
 
 }
 harry_logo_section();
+
+
+// header logo section 
+function harry_footer_section(){
+    new \Kirki\Section(
+        'harry_footer_option',
+        [
+            'title'       => esc_html__( 'Footer', 'harry' ),
+            'description' => esc_html__( 'Footer section here', 'harry' ),
+            'panel'       => 'harry_panel',
+            'priority'    => 160,
+        ]
+    );
+
+    new \Kirki\Field\Text(
+        [
+            'settings' => 'harry_footer_copyright',
+            'label'    => esc_html__( 'Footer Copyright', 'harry' ),
+            'section'  => 'harry_footer_option',
+            'default'  => esc_html__( '© 2024 Harry All Rights Reserved.', 'harry' ),
+            'priority' => 10,
+        ]
+    );
+
+}
+harry_footer_section();
