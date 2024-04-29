@@ -28,6 +28,13 @@ function harry_theme_support(){
         'quote' 
     ));
 
+    register_nav_menus(
+        array(
+            'main-menu' => __('Main Menu','harry'),
+            'side-menu' => __('Side Menu','harry'),
+        )
+    );
+
 
 }
 
@@ -44,5 +51,10 @@ function harry_header(){
 
 
 include_once('inc/common/scripts.php');
-include_once('inc/harry-kirki.php');
+
+if ( class_exists( 'Kirki' ) ) {
+    include_once('inc/harry-kirki.php');
+}
+
 include_once('inc/template-function.php');
+include_once('inc/nav-walker.php');
