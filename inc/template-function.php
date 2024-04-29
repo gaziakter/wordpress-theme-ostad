@@ -1,5 +1,52 @@
 <?php 
 
+
+// harry_header
+function harry_header(){
+    $header_deafult_style = get_theme_mod( 'header_default_setting', 'header-style-1' );
+
+    if($header_deafult_style == 'header-style-1'){
+        get_template_part( 'template-parts/header/header-1' );
+    }
+    elseif($header_deafult_style == 'header-style-2'){
+        get_template_part( 'template-parts/header/header-2' );
+    }
+    elseif($header_deafult_style == 'header-style-3'){
+        get_template_part( 'template-parts/header/header-3' );
+    }
+    elseif($header_deafult_style == 'header-style-4'){
+        get_template_part( 'template-parts/header/header-4' );
+    }
+    elseif($header_deafult_style == 'header-style-5'){
+        get_template_part( 'template-parts/header/header-5' );
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // harry_logo 
 function harry_logo(){ 
     $harry_logo = get_theme_mod( 'harry_logo', get_template_directory_uri() . '/assets/img/logo/logo-black.svg' )    

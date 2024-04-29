@@ -41,13 +41,6 @@ function harry_theme_support(){
 add_action('after_setup_theme','harry_theme_support');
 
 
-// harry_header
-function harry_header(){
-	get_template_part( 'template-parts/header/header-1' );
-}
-
-
-
 
 
 include_once('inc/common/scripts.php');
