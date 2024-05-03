@@ -59,4 +59,6 @@
       <!-- back to top end -->
 
 
-<?php harry_header(); ?>      
+<?php harry_header(); ?>  
+<?php harry_breadcrumb(); ?>  
+

@@ -314,7 +314,7 @@ function harry_logo_section(){
 harry_logo_section();
 
 
-// header logo section 
+// Footer section 
 function harry_footer_section(){
     new \Kirki\Section(
         'harry_footer_option',
@@ -338,3 +338,28 @@ function harry_footer_section(){
 
 }
 harry_footer_section();
+
+
+// Blog section 
+function harry_blog_section(){
+    new \Kirki\Section(
+        'harry_blog_option',
+        [
+            'title'       => esc_html__( 'Blog', 'harry' ),
+            'description' => esc_html__( 'Blog section here', 'harry' ),
+            'panel'       => 'harry_panel',
+            'priority'    => 160,
+        ]
+    );
+
+    new \Kirki\Field\Image(
+        [
+            'settings' => 'harry_breadcrumb_bg',
+            'label'    => esc_html__( 'Breadcrumb Image', 'harry' ),
+            'section'  => 'harry_blog_option',
+            'priority' => 10,
+        ]
+    );
+
+}
+harry_blog_section();
