@@ -179,3 +179,61 @@ function harry_navigation(){
         echo '</ul></nav>';
     }
 }
+
+
+function harry_tags(){
+	$post_tags = get_the_tags();
+    if ($post_tags) {
+        foreach ($post_tags as $tag) {
+            ?>
+            <a href="<?php echo get_tag_link($tag); ?>"><?php echo $tag->name; ?></a>
+            <?php
+        }
+    } else {
+        ?>
+        <i>No tags found</i>
+        <?php
+    }
+}
+
+function harry_social_share(){ ?>
+    <div class="postbox__share text-xl-end">
+        <span>Share On:</span>
+        <a href="https://www.linkedin.com/shareArticle?url=<?php the_permalink(); ?>" target="_blank">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+<?php
+}
+
+
+// display_post_views 
+
+// track_post_views
+function track_post_views() {
+    if (is_single()) {
+        global $post;
+        $post_id = $post->ID;
+
+        $views = get_post_meta($post_id, 'post_views', true);
+        $views = $views ? $views : 0;
+
+        $views++;
+        update_post_meta($post_id, 'post_views', $views);
+    }
+}
+
+add_action('wp_head', 'track_post_views');
+
+function display_post_views() {
+    if (is_single()) {
+        $post_views = get_post_meta(get_the_ID(), 'post_views', true);
+        echo ($post_views ? $post_views : 0);
+    }
+}

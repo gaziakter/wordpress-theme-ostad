@@ -12435,7 +12435,7 @@ input[type=color] {
   margin-right: 5px;
   margin-left: 0;
 }
-.main-menu ul li. {
+.main-menu ul li {
   position: static;
 }
 .main-menu ul li .submenu {
@@ -49237,37 +49237,37 @@ p.postbox__meta-name {
   border: 1px solid var(--tp-common-black);
   padding-bottom: 45px;
 }
-.postbox__comment ul li {
+.postbox__comment li {
   margin-bottom: 20px;
   list-style: none;
 }
-.postbox__comment ul.children {
+.postbox__comment.children {
   margin-top: 20px;
   margin-left: 100px;
 }
-[dir=rtl] .postbox__comment ul.children {
+[dir=rtl] .postbox__comment.children {
   margin-left: 0;
   margin-right: 100px;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  .postbox__comment ul.children {
+  .postbox__comment.children {
     margin-left: 40px;
   }
-  [dir=rtl] .postbox__comment ul.children {
+  [dir=rtl] .postbox__comment.children {
     margin-left: 0;
     margin-right: 40px;
   }
 }
 @media (max-width: 575px) {
-  .postbox__comment ul.children {
+  .postbox__comment.children {
     margin-left: 15px;
   }
-  [dir=rtl] .postbox__comment ul.children {
+  [dir=rtl] .postbox__comment.children {
     margin-left: 15px;
     margin-right: 15px;
   }
 }
-.postbox__comment ul.children .postbox__comment-avater img {
+.postbox__comment.children .postbox__comment-avater img {
   width: 60px;
   height: 60px;
 }
