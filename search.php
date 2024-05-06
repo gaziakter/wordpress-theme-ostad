@@ -11,14 +11,14 @@
 
 
 
-<section class="postbox__area  grey-bg-4 pt-120 pb-120">
+<section class="postbox__area grey-bg-4 pt-120 pb-120 hello-new">
    <div class="container">
       <div class="row <?php echo esc_attr($post_col_rev); ?>">
          <div class="<?php echo esc_attr($post_col); ?>">
             <div class="postbox__wrapper">
             <?php if ( have_posts() ) : ?>
                   <?php while ( have_posts() ) : the_post(); ?> 
-                  <?php echo get_template_part( 'template-parts/content' , get_post_format() ); ?>
+                  <?php echo get_template_part( 'template-parts/content-search' ); ?>
                   <?php endwhile; ?>
              <?php else : ?>
                <?php echo get_template_part( 'template-parts/content-none' ); ?>

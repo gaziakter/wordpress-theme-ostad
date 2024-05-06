@@ -11,7 +11,7 @@
 
 
 
-<section class="postbox__area  grey-bg-4 pt-120 pb-120">
+<section class="postbox__area author-template-area  grey-bg-4 pt-120 pb-120">
    <div class="container">
       <div class="row <?php echo esc_attr($post_col_rev); ?>">
          <div class="<?php echo esc_attr($post_col); ?>">
