@@ -41,3 +41,7 @@ img {
 	color: var(--tp-theme-1);
 	font-weight: 500;
 }
+
+.tagcloud a {
+	font-size: 14px !important;
+}
