@@ -40,8 +40,16 @@ function harry_theme_support(){
 
 	add_theme_support('woocommerce');
 
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
+
 	// Remove woocommerce defauly styles
 	add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+	add_theme_support( 'woocommerce', array(
+		'thumbnail_image_width' => 200,
+		'gallery_thumbnail_image_width' => 200,
+	) );
 
 }
 
@@ -58,6 +66,16 @@ function harry_widgets(){
 		'before_widget' => '<div id="%1$s" class="sidebar__widget mb-40 %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="sidebar__widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
+    register_sidebar( array(
+		'name'          => __( 'Product Sidebar', 'harry' ),
+		'id'            => 'product-sidebar',
+		'description'   => __( 'Widgets in this area will be shown product sidebar', 'harry' ),
+		'before_widget' => '<div id="%1$s" class="shop__widget tp-accordion mb-30 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="pro_sidebar__widget-title">',
 		'after_title'   => '</h3>',
 	) );
 

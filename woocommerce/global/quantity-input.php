@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 $label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'woocommerce' ), wp_strip_all_tags( $args['product_name'] ) ) : esc_html__( 'Quantity', 'woocommerce' );
 
 ?>
-<div class="quantity">
+<div class="quantity tp-product-quantity mt-10 mb-10">
 	<?php
 	/**
 	 * Hook to output something before the quantity input field.
@@ -34,11 +34,16 @@ $label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 
 	do_action( 'woocommerce_before_quantity_input_field' );
 	?>
 	<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_attr( $label ); ?></label>
+	<span class="tp-cart-minus">
+		<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M1 1H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>                                                             
+	</span>
 	<input
-		type="<?php echo esc_attr( $type ); ?>"
+		type="text"
 		<?php echo $readonly ? 'readonly="readonly"' : ''; ?>
 		id="<?php echo esc_attr( $input_id ); ?>"
-		class="<?php echo esc_attr( join( ' ', (array) $classes ) ); ?>"
+		class="<?php echo esc_attr( join( ' tp-cart-input ', (array) $classes ) ); ?>"
 		name="<?php echo esc_attr( $input_name ); ?>"
 		value="<?php echo esc_attr( $input_value ); ?>"
 		aria-label="<?php esc_attr_e( 'Product quantity', 'woocommerce' ); ?>"
@@ -52,6 +57,12 @@ $label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 
 			autocomplete="<?php echo esc_attr( isset( $autocomplete ) ? $autocomplete : 'on' ); ?>"
 		<?php endif; ?>
 	/>
+	<span class="tp-cart-plus">
+		<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M1.21924 7H13.3836" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+		<path d="M7.30176 13V1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</span>
 	<?php
 	/**
 	 * Hook to output something after quantity input field

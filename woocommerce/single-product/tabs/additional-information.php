@@ -23,8 +23,14 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
 
 ?>
 
-<?php if ( $heading ) : ?>
-	<h2><?php echo esc_html( $heading ); ?></h2>
-<?php endif; ?>
+<div class="row">
+	<div class="col-xl-9">
+		<?php if ( $heading ) : ?>
+		<h4 class="mt-40"><?php echo esc_html( $heading ); ?></h4>
+		<?php endif; ?>
 
-<?php do_action( 'woocommerce_product_additional_information', $product ); ?>
+		<div class="product__details-additional-inner">
+			<?php do_action( 'woocommerce_product_additional_information', $product ); ?>
+		</div>		
+	</div>
+</div>
