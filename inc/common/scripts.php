@@ -15,6 +15,7 @@ function harry_add_theme_scripts() {
 	wp_enqueue_style( 'magnific-popup', get_template_directory_uri() . '/assets/css/magnific-popup.css', array(), '1.0.0', 'all' );
 	wp_enqueue_style( 'font-awesome-pro', get_template_directory_uri() . '/assets/css/font-awesome-pro.css', array(), '1.0.0', 'all' );
 	wp_enqueue_style( 'elegant-icon', get_template_directory_uri() . '/assets/css/elegant-icon.css', array(), '1.0.0', 'all' );
+	wp_enqueue_style( 'nice-select', get_template_directory_uri() . '/assets/css/nice-select.css', array(), '1.0.0', 'all' );
 	wp_enqueue_style( 'spacing', get_template_directory_uri() . '/assets/css/spacing.css', array(), '1.0.0', 'all' );
 	wp_enqueue_style( 'harry-main', get_template_directory_uri() . '/assets/css/main.css', array(), '1.0.0', 'all' );
     wp_enqueue_style( 'style', get_stylesheet_uri() );

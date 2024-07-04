@@ -36,9 +36,12 @@ function harry_theme_support(){
         )
     );
 
-
     remove_theme_support( 'widgets-block-editor' );
 
+	add_theme_support('woocommerce');
+
+	// Remove woocommerce defauly styles
+	add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
 }
 
@@ -56,6 +59,16 @@ function harry_widgets(){
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="sidebar__widget-title">',
 		'after_title'   => '</h3>',
+	) );
+
+    register_sidebar( array(
+		'name'          => __( 'Services Sidebar', 'harry' ),
+		'id'            => 'services-sidebar',
+		'description'   => __( 'Widgets in this area will be shown services sidebar', 'harry' ),
+		'before_widget' => '<div id="%1$s" class="services__widget-item-2 mb-30 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="services__contact-title">',
+		'after_title'   => '</h4>',
 	) );
 
 
@@ -109,13 +122,55 @@ add_action( 'widgets_init', 'harry_widgets' );
 
 // nec files 
 include_once('inc/common/scripts.php');
-include_once('inc/common/comments-form-list.php');
 
 if ( class_exists( 'Kirki' ) ) {
     include_once('inc/harry-kirki.php');
 }
 
+if ( class_exists( 'WooCommerce' ) ) {
+    include_once('inc/woo.php');
+}
+
 include_once('inc/template-function.php');
 include_once('inc/nav-walker.php');
 include_once('inc/breadcrumb.php');
-include_once('inc/sidebar-rc-post-widget.php');
+
+
+// function harry_title_01(){
+// 	echo "<h1> This is title 01 </h1>";
+// }
+
+// add_action('harry_custom_title','harry_title_01',9);
+
+// function harry_title_02(){
+// 	echo "<h1> This is title 02 </h1>";
+// }
+// add_action('harry_custom_title','harry_title_02',8);
+
+// function harry_title_03(){
+// 	echo "<h1> This is title 03 </h1>";
+// }
+// add_action('harry_custom_title','harry_title_03',7);
+
+// function harry_title_04(){
+// 	echo "<h1> This is title 04 </h1>";
+// }
+// add_action('harry_custom_title','harry_title_04',6);
+
+
+// remove_action('harry_custom_title','harry_title_02',8);
+// remove_action('harry_custom_title','harry_title_01',9);
+
+
+
+
+
+function harry_title_new($p,$p2){ ?>
+		<h1><?php echo $p = "one"; ?></h1>
+		<h1><?php echo $p2 = "two"; ?></h1>
+	<?php
+
+	return;
+}
+
+// add_filter( 'harry_title_filter','harry_title_new', 10, 2 ); 

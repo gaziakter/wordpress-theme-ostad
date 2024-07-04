@@ -58,7 +58,9 @@
       </div>
       <!-- back to top end -->
 
+<?php do_action('harry_header_before'); ?>
 
-<?php harry_header(); ?>  
-<?php harry_breadcrumb(); ?>  
+ 
+<?php // do_action('harry_custom_title'); ?>
 
+<?php // echo apply_filters( 'harry_title_filter','Filter One', 'Filter Two'); ?>

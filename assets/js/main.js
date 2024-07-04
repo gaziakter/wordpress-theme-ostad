@@ -213,7 +213,7 @@
 	});
 
 	$("[data-bg-color]").each(function () {
-        $(this).css("background-color", $(this).attr("data-bg-color"));
+        // $(this).css("background-color", $(this).attr("data-bg-color"));
     });
 
 	////////////////////////////////////////////////////
